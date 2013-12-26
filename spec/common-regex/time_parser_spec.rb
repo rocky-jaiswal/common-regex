@@ -23,4 +23,11 @@ describe "TimeParser" do
     expect(response).to include("1700 hrs")
   end
 
+  it "is able to extract time from text (format 4)" do
+    response = CommonRegex::TimeParser.parse("Lets meet between 4:00pm to 1700hrs")
+    expect(response.length).to eq(2)
+    expect(response).to include("4:00pm")
+    expect(response).to include("1700hrs")
+  end
+
 end
